@@ -1,0 +1,3 @@
+Tidak ada environment variable yang perlu diisi untuk project ini.
+Token GitHub tidak disimpan di server: dikirim per request dari browser
+pengguna dan hanya diteruskan ke api.github.com.
