@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Uploader</title>
+  <script src="js/guard.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top"><h1>GitHub Uploader</h1><a class="btn" href="setup.html">Setup Akun</a></header>
+  <main>
+    <section class="card">
+      <div class="info-row"><span id="hAcc"></span><span id="hRepo"></span><span id="hBranch"></span></div>
+    </section>
+    <section class="card">
+      <div class="tabs" role="tablist">
+        <button class="btn" role="tab" id="tabFiles" aria-selected="true">Pilih File</button>
+        <button class="btn" role="tab" id="tabZip" aria-selected="false">Unggah ZIP</button>
+      </div>
+      <div id="paneFiles">
+        <p>Pilih file satu per satu atau banyak sekaligus. Bisa ditambah berkali-kali.</p>
+        <input type="file" id="fileInput" multiple class="hidden">
+        <button class="btn info" id="btnPick">Tambah File</button>
+      </div>
+      <div id="paneZip" class="hidden">
+        <p>Pilih file .zip. Diekstrak di browser, struktur folder dipertahankan.</p>
+        <input type="file" id="zipInput" accept=".zip,application/zip" class="hidden">
+        <button class="btn info" id="btnPickZip">Pilih ZIP</button>
+      </div>
+      <div id="notice" class="msg"></div>
+    </section>
+    <section class="card">
+      <h2>Siap Diunggah: <span id="count">0</span> file</h2>
+      <ul id="list" class="list"></ul>
+      <div class="bar"><div id="barFill"></div></div>
+      <div id="progText" class="msg"></div>
+      <div class="actions">
+        <button class="btn bad" id="btnClear">Bersihkan File</button>
+        <button class="btn ok" id="btnUpload">Upload</button>
+        <button class="btn info hidden" id="btnRetry">Ulangi yang gagal</button>
+      </div>
+      <div id="summary" class="msg"></div>
+    </section>
+  </main>
+  <dialog id="dlg">
+    <form method="dialog">
+      <p id="dlgText"></p>
+      <label class="chk"><input type="checkbox" id="dlgAll"> Terapkan ke semua file berikutnya</label>
+      <div class="actions"><button class="btn bad" value="overwrite">Timpa</button><button class="btn" value="skip">Lewati</button></div>
+    </form>
+  </dialog>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>
