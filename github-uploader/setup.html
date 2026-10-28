@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setup - GitHub Uploader</title>
+  <script src="js/guard.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top"><h1>GitHub Uploader</h1><a class="btn" href="index.html">Ke Halaman Upload</a></header>
+  <main>
+    <section class="card">
+      <h2>Setup Akun</h2>
+      <label>Username GitHub<input id="username" autocomplete="off" autocapitalize="off"></label>
+      <label>Token GitHub
+        <span class="row"><input id="token" type="password" autocomplete="off" autocapitalize="off"><button type="button" class="btn sm" id="btnToggle">Tampil</button></span>
+      </label>
+      <label>Nama repo<input id="repo" autocomplete="off" autocapitalize="off"></label>
+      <label>Branch<input id="branch" value="main" autocomplete="off" autocapitalize="off"></label>
+      <label>Target folder (opsional, contoh: assets/images)<input id="targetFolder" autocomplete="off" autocapitalize="off"></label>
+      <label>Template pesan commit (gunakan {filename})<input id="commitMessageTemplate" value="Upload {filename}"></label>
+      <div class="actions">
+        <button class="btn ok" id="btnSave">Simpan</button>
+        <button class="btn info" id="btnTest">Uji Koneksi</button>
+        <button class="btn bad" id="btnClear">Hapus data akun</button>
+      </div>
+      <div id="setupMsg" class="msg"></div>
+    </section>
+
+    <section class="card">
+      <h2>Repo Anda</h2>
+      <p>Klik "Uji Koneksi" untuk memuat semua repo (termasuk privat). Klik repo untuk memilihnya.</p>
+      <div id="repoList" class="list"></div>
+      <div class="actions"><button class="btn info" id="btnRepoTest">Uji Koneksi Repo</button></div>
+      <div id="repoMsg" class="msg"></div>
+    </section>
+
+    <section class="card">
+      <h2>Buat Repo Baru</h2>
+      <label>Nama repo<input id="newName" autocomplete="off" autocapitalize="off"></label>
+      <label>Deskripsi<input id="newDesc" autocomplete="off"></label>
+      <label>Visibilitas<select id="newVis"><option value="public">Public</option><option value="private">Private</option></select></label>
+      <div class="actions"><button class="btn ok" id="btnCreate">Buat Repo</button></div>
+      <div id="createMsg" class="msg"></div>
+    </section>
+
+    <section class="card">
+      <h2>Export / Import</h2>
+      <p class="warn">PERINGATAN: file JSON export berisi token GitHub Anda. Simpan di tempat aman dan jangan dibagikan.</p>
+      <div class="actions">
+        <button class="btn" id="btnExport">Export JSON</button>
+        <button class="btn" id="btnImportFile">Import JSON (file)</button>
+        <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+      </div>
+      <label style="margin-top:16px">Atau tempel teks JSON<textarea id="importText" rows="8" spellcheck="false" placeholder='{"token":"...","username":"...","repo":"...","branch":"main","targetFolder":"","commitMessageTemplate":"Upload {filename}"}'></textarea></label>
+      <div class="actions"><button class="btn" id="btnImportText">Import dari teks</button></div>
+      <div id="importMsg" class="msg"></div>
+    </section>
+  </main>
+  <script src="js/common.js"></script>
+  <script src="js/setup.js"></script>
+</body>
+</html>
